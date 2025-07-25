@@ -14,6 +14,10 @@ if (!process.env.TOGETHER_API_KEY) {
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req,res) => {
+  res.send("Hello Sandeep, this is your canva backend!!!")
+})
+
 app.post('/api/generate-text', async (req, res) => {
   const { prompt } = req.body;
   if (!prompt) return res.status(400).json({ error: 'Missing prompt' });
